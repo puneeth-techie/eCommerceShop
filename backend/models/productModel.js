@@ -47,22 +47,22 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     price: {
-      tryp: Number,
+      type: Number,
       required: true,
       default: 0,
     },
     countInStock: {
-      tryp: Number,
+      type: Number,
       required: true,
       default: 0,
     },
     rating: {
-      tryp: Number,
+      type: Number,
       required: true,
       default: 0,
     },
     numReviews: {
-      tryp: Number,
+      type: Number,
       required: true,
       default: 0,
     },
