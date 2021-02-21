@@ -1,15 +1,9 @@
 import express from "express";
-import products from "../data/products.js";
+import prouductRoute from "../routes/productRoutes.js";
 
 const app = express();
 
-app.get("/api/products", (req, res, next) => {
-  res.json(products);
-});
-
-app.get("/api/products/:id", (req, res, next) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
+//route handler
+app.use("/api/products", prouductRoute);
 
 export default app;
