@@ -3,12 +3,14 @@ import {
   combineReducers,
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
-import productList from "../store/products";
+import productList from "./productList";
+import productDetail from "./productDetail";
 
 const middlewares = [];
 
 const reducer = combineReducers({
   productList,
+  productDetail,
 });
 
 const store = configureStore({

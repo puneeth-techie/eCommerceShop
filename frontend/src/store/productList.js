@@ -7,39 +7,39 @@ const initialState = {
   error: false,
 };
 
-const productSlice = createSlice({
+const productListSlice = createSlice({
   name: "productList",
   initialState,
   reducers: {
-    productFetchRequest: (state, action) => {
+    productListRequest: (state, action) => {
       state.loading = true;
       state.products = [];
     },
-    productFetchRequestSuccess: (state, action) => {
+    productListRequestSuccess: (state, action) => {
       state.loading = false;
       state.products = action.payload;
     },
-    productFetchRequestFailure: (state, action) => {
+    productListRequestFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
   },
 });
 
-const { actions } = productSlice;
-//console.log(actions.productFetchRequest.toString());
+const { actions } = productListSlice;
+//console.log(actions.productListRequest.toString());
 
 export const listProducts = () => async (dispatch) => {
   try {
-    dispatch({ type: actions.productFetchRequest.toString() });
+    dispatch({ type: actions.productListRequest.toString() });
     const { data } = await axios.get("/api/products");
     dispatch({
-      type: actions.productFetchRequestSuccess.toString(),
+      type: actions.productListRequestSuccess.toString(),
       payload: data,
     });
   } catch (err) {
     dispatch({
-      type: actions.productFetchRequestFailure.toString(),
+      type: actions.productListRequestFailure.toString(),
       payload:
         err.response && err.response.data.message
           ? err.response.data.message
@@ -48,4 +48,4 @@ export const listProducts = () => async (dispatch) => {
   }
 };
 
-export default productSlice.reducer;
+export default productListSlice.reducer;
