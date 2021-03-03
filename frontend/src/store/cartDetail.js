@@ -36,7 +36,7 @@ const cartDetailSlice = createSlice({
 const { actions } = cartDetailSlice;
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-  const { data } = axios.get(`/api/products/${id}`);
+  const { data } = await axios.get(`/api/products/${id}`);
   dispatch({
     type: actions.addItemToCart.toString(),
     payload: {
@@ -50,7 +50,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
   });
   localStorage.setItem(
     "cartItems",
-    JSON.stringify(getState().cartDetailSlice.name.cartItems)
+    JSON.stringify(getState().cartDetail.cartItems)
   );
 };
 export default cartDetailSlice.reducer;
