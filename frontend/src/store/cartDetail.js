@@ -62,7 +62,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 
 export const removeFromCart = (id) => (dispatch, getState) => {
   dispatch({
-    type: actions.removeFromCart.toString(),
+    type: actions.removeItemFromCart.toString(),
     payload: id,
   });
   localStorage.setItem(
