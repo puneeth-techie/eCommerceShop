@@ -30,6 +30,12 @@ const cartDetailSlice = createSlice({
         };
       }
     },
+    removeItemFromCart: (state, action) => {
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+      };
+    },
   },
 });
 
@@ -47,6 +53,17 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
       countInStock: data.countInStock,
       qty,
     },
+  });
+  localStorage.setItem(
+    "cartItems",
+    JSON.stringify(getState().cartDetail.cartItems)
+  );
+};
+
+export const removeFromCart = (id) => (dispatch, getState) => {
+  dispatch({
+    type: actions.removeFromCart.toString(),
+    payload: id,
   });
   localStorage.setItem(
     "cartItems",
