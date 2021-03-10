@@ -6,7 +6,7 @@ import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import LoginScreen from "./components/LoginScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 const App = () => {
   return (

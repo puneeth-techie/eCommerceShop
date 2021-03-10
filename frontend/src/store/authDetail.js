@@ -3,7 +3,8 @@ import axios from "axios";
 
 const initialState = {
   loading: false,
-  userInfo,
+  error: false,
+  userInfo: {},
 };
 
 const userAuthSlice = createSlice({
