@@ -2,14 +2,17 @@ import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/authDetail";
 
 const Header = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.authDetail);
   const { userInfo } = userLogin;
+
   const logoutHandler = () => {
-    console.log("logout");
+    dispatch(logout());
   };
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
